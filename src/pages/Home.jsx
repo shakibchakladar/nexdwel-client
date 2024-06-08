@@ -1,6 +1,8 @@
 import Addv from "../components /Addv";
 import Banner from "../components /Banner";
+import OurAgent from "../components /OurAgent";
 import Review from "../components /Review";
+import WhySpecial from "../components /WhySpecial";
 
 const Home = () => {
     return (
@@ -9,6 +11,8 @@ const Home = () => {
             <Banner></Banner>
             <Addv></Addv>
             <Review></Review>
+            <WhySpecial></WhySpecial>
+            <OurAgent></OurAgent>
         </div>
     );
 };
