@@ -1,5 +1,6 @@
 import Addv from "../components /Addv";
 import Banner from "../components /Banner";
+import Review from "../components /Review";
 
 const Home = () => {
     return (
@@ -7,6 +8,7 @@ const Home = () => {
             {/* <h2>This is Home</h2> */}
             <Banner></Banner>
             <Addv></Addv>
+            <Review></Review>
         </div>
     );
 };
