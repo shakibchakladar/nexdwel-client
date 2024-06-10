@@ -1,61 +1,82 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { NavLink } from "react-router-dom";
+import toast from "react-hot-toast";
+
 const Navbar = () => {
-  const navOptions = (
-    <>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
-    </>
-  );
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut();
+    toast.success("Logged out successfully");
+  };
+
   return (
-    <div className="navbar bg-black text-white fixed z-10 bg-opacity-30">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            {navOptions}
-          </ul>
+    <div className="navbar shadow-sm container px-4 mx-auto  bg-black text-white fixed z-10 bg-opacity-30">
+      <div className="flex-1">
+        <div className="flex gap-2 items-center">
+          <img className="w-auto h-7" src="" alt="" />
+          <span className="font-bold">SoloSphere</span>
         </div>
-        <a className="btn btn-ghost text-xl">NextDwell</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navOptions}</ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <NavLink to="/">
+              <div>Home</div>
+            </NavLink>
+          </li>
+
+          {!user && (
+            <li>
+              <NavLink to="/login">
+                <div>Login</div>
+              </NavLink>
+            </li>
+          )}
+        </ul>
+
+        {user && (
+          <div className="dropdown dropdown-end z-50">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full" title="">
+                <img
+                  referrerPolicy="no-referrer"
+                  alt="User Profile Photo"
+                  src={user?.photoURL}
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
+            >
+              <li>
+                <div className="justify-between">Add Job</div>
+              </li>
+              <li>
+                <div>My Posted Jobs</div>
+              </li>
+              <li>
+                <div>My Bids</div>
+              </li>
+              <li>
+                <div>Bid Requests</div>
+              </li>
+              <li className="mt-2">
+                <button
+                  onClick={handleLogOut}
+                  className=" bg-black block text-center"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
