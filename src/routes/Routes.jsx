@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Registration from "../components /Registration";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import AllProperties from "../pages/AllProperties";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +24,14 @@ export const router = createBrowserRouter([
         {
             path:"/registration",
             element:<Registration></Registration>
+        },
+        {
+            path:"/allproperty",
+            element:<PrivateRoute>
+                <AllProperties></AllProperties>
+            </PrivateRoute>
         }
+        
     ]
   },
 ]);

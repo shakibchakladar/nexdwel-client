@@ -1,11 +1,17 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
     const navigate=useNavigate();
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+//   const navigate=useNavigate();
+  const location=useLocation();
+
+  const from=location.state?.from?.pathName || '/';
+
+
 //   google sign in 
 const handleGoogleSignIn=async()=>{
     // alert('click')
@@ -33,6 +39,7 @@ const handleSubmit = async (e) => {
       console.log(err);
       toast.error(err?.message);
     }
+    navigate(from, {replace:true});
   };
   return (
     <div className="pt-16 flex justify-center items-center min-h-[calc(100vh-306px)]">

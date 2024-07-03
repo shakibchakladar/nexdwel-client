@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="flex-1">
         <div className="flex gap-2 items-center">
           <img className="w-auto h-7" src="" alt="" />
-          <span className="font-bold">SoloSphere</span>
+          <span className="font-bold">NextDwell</span>
         </div>
       </div>
       <div className="flex-none">
@@ -23,6 +23,16 @@ const Navbar = () => {
           <li>
             <NavLink to="/">
               <div>Home</div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/allproperty">
+              <div>All properties</div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard">
+              <div>Dashboard</div>
             </NavLink>
           </li>
 
