@@ -1,22 +1,35 @@
+import { Link } from "react-router-dom";
 
-const PropertyCard = ({singleProperty}) => {
-    console.log(singleProperty);
-    return (
-        <div className="shadow-xl card bg-base-100 w-96">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="justify-end card-actions">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+const PropertyCard = ({ singleProperty }) => {
+  console.log(singleProperty);
+  const {
+    property_image,
+    agent_name,
+    price_range,
+    property_location,
+    property_title,
+    verification_status,
+  } = singleProperty;
+  // console.log(singleProperty._id);
+  return (
+    <div className="shadow-xl card bg-base-100 w-96">
+      <figure>
+        <img src={property_image} alt="Shoes" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{property_title}</h2>
+        <p>Location :{property_location}</p>
+        <p>Price range:{price_range}</p>
+        <p>Agent name:{agent_name}</p>
+        <div className="justify-end card-actions">
+          {/* <Link to={`/details/${food?._id}`}> */}
+         <Link to={`/details/${singleProperty?._id}`}>
+         <button className="btn btn-primary">View details</button>
+         </Link>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default PropertyCard;

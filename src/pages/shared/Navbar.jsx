@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
@@ -11,15 +11,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar shadow-sm container px-4 mx-auto  bg-black text-white fixed z-10 bg-opacity-30">
+    <div className="container fixed z-10 px-4 mx-auto text-white bg-black shadow-sm navbar bg-opacity-30">
       <div className="flex-1">
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <img className="w-auto h-7" src="" alt="" />
           <span className="font-bold">NextDwell</span>
         </div>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="px-1 menu menu-horizontal">
           <li>
             <NavLink to="/">
               <div>Home</div>
@@ -31,8 +31,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">
-              <div>Dashboard</div>
+            <NavLink to="/dashbord/cart">
+              <div>cart</div>
             </NavLink>
           </li>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
         </ul>
 
         {user && (
-          <div className="dropdown dropdown-end z-50">
+          <div className="z-50 dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -64,7 +64,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
             >
-              <li>
+              {/* <li>
                 <div className="justify-between">Add Job</div>
               </li>
               <li>
@@ -75,11 +75,12 @@ const Navbar = () => {
               </li>
               <li>
                 <div>Bid Requests</div>
-              </li>
+              </li> */}
+              <li><Link to='/dashbord' className="bg-black">Dashboad</Link></li>
               <li className="mt-2">
                 <button
                   onClick={handleLogOut}
-                  className=" bg-black block text-center"
+                  className="block text-center bg-black "
                 >
                   Logout
                 </button>

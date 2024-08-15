@@ -17,7 +17,7 @@ const AllProperties = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="pt-12">
       <h2>All properties {property.length}</h2>
       <div className="grid grid-cols-1 px-5 md:grid-cols-3 p">
         {property?.map((singleProperty) => (
