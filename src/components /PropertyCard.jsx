@@ -5,6 +5,7 @@ const PropertyCard = ({ singleProperty }) => {
   const {
     property_image,
     agent_name,
+    agent_email,
     price_range,
     property_location,
     property_title,
@@ -21,6 +22,8 @@ const PropertyCard = ({ singleProperty }) => {
         <p>Location :{property_location}</p>
         <p>Price range:{price_range}</p>
         <p>Agent name:{agent_name}</p>
+        <p>Agent email: {agent_email}</p>
+        <p>Verification status: {verification_status}</p>
         <div className="justify-end card-actions">
           {/* <Link to={`/details/${food?._id}`}> */}
          <Link to={`/details/${singleProperty?._id}`}>

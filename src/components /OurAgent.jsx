@@ -1,15 +1,15 @@
 const OurAgent = () => {
   return (
-    <div className="text-center p-5 m-5 space-y-2">
-      <h2 className="text-3xl font-poppins">Our Agent</h2>
-      <p className="m-2 p-2">
+    <div className="p-5 m-5 space-y-2 text-center">
+      <h2 className="text-3xl font-bold text-purple-500 font-poppins">Our Agent</h2>
+      <p className="p-2 m-2">
         Lets introducing with our Agents of NextDwell
       </p>
-      <div className="grid md:grid-cols-3 grid-cols-1 my-7 p-5 gap-7">
+      <div className="grid grid-cols-1 p-5 md:grid-cols-3 my-7 gap-7">
         <div className="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
           <img
             className="object-cover w-full h-56"
-            src="https://i.ibb.co/nsM4YH2/rc-cf-FMh5o5m5-N9-E-unsplash.jpg"
+            src="https://i.ibb.co/V9D0g14/austin-distel-jp-Hw8ndw-J-Q-unsplash.jpg"
             alt="avatar"
           />
 
@@ -23,14 +23,14 @@ const OurAgent = () => {
               Islam Uddin
             </a>
             <span className="text-sm text-gray-700 dark:text-gray-200">
-              Senior Chef
+              Senior Agent
             </span>
           </div>
         </div>
         <div className="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
           <img
             className="object-cover w-full h-56"
-            src="https://i.ibb.co/vc2N8CM/febrian-zakaria-Si-Qgni-cq-Fg-unsplash.jpg"
+            src="https://i.ibb.co/kDhV1jM/Screenshot-2024-09-03-at-12-13-55-AM.png"
             alt="avatar"
           />
 
@@ -44,14 +44,14 @@ const OurAgent = () => {
               Ms Choudhury
             </a>
             <span className="text-sm text-gray-700 dark:text-gray-200">
-              Special chef
+              Special Agent
             </span>
           </div>
         </div>
         <div className="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
           <img
             className="object-cover w-full h-56"
-            src="https://i.ibb.co/Nrw6BQ4/louis-hansel-v3-Ol-BE6-fh-U-unsplash.jpg"
+            src="https://i.ibb.co/w68DjJ4/Screenshot-2024-09-03-at-12-15-25-AM.png"
             alt="avatar"
           />
 
@@ -62,10 +62,10 @@ const OurAgent = () => {
               tabIndex="0"
               role="link"
             >
-              Habib Ullah
+               Miss Zara
             </a>
             <span className="text-sm text-gray-700 dark:text-gray-200">
-              Ribs Chef
+             Special Agent
             </span>
           </div>
         </div>

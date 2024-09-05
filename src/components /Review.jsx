@@ -2,12 +2,12 @@ const Review = () => {
   return (
     <div>
       <div className="m-10 space-y-5 text-center p-15 ">
-        <h2 className="text-5xl font-extrabold font-poppins text-[#FA7F08] ">
+        <h2 className="text-5xl font-extrabold text-purple-500 font-poppins ">
           Latest User review
         </h2>
         <p>Here you can see our clients latest review</p>
       </div>
-      <div className="grid grid-cols-1 p-5 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 gap-5 p-5 md:grid-cols-3">
         {/* {addv?.map((add) => (
           <AddvCard key={add._id} add={add}></AddvCard>
         ))} */}

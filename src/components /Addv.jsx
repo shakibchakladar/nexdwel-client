@@ -13,7 +13,7 @@ const Addv = () => {
     return (
         <div>
         <div className="m-10 space-y-5 text-center p-15 ">
-          <h2 className="text-5xl font-extrabold font-poppins text-[#FA7F08] ">
+          <h2 className="text-5xl font-extrabold text-purple-500 font-poppins">
           Advertisement section
           </h2>
           <p>Here you can see our top and new collections</p>
