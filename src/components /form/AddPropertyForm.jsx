@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 const AddPropertyForm = ({ handleSubmit, setImagePreview, imagePreview,imageText,handleImage}) => {
-  // const categories=''
+  const {user}=useContext(AuthContext);
+  // console.log(user);
   return (
     <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
       <form onSubmit={handleSubmit} className="w-full p-10">
@@ -83,7 +87,8 @@ const AddPropertyForm = ({ handleSubmit, setImagePreview, imagePreview,imageText
                   name="Agent Name"
                   id="agent-name"
                   type="text"
-                  placeholder=""
+                  value={user?.displayName}
+                  readOnly
                 />
               </div>
               <div className="w-full">
@@ -95,7 +100,8 @@ const AddPropertyForm = ({ handleSubmit, setImagePreview, imagePreview,imageText
                   name="Agent Name"
                   id="agent-name"
                   type="text"
-                  placeholder=""
+                  value={user?.email}
+                  readOnly
                 />
               </div>
             </div>
