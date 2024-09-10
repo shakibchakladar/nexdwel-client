@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import RoomDataRow from "../../../components /RoomDataRow";
+import toast from "react-hot-toast";
 // import { Helmet } from "react-helmet-async";
 
 const MyAdded = () => {
@@ -18,7 +19,29 @@ const MyAdded = () => {
         });
     }
   }, [user?.email]);
-  // console.log(MyAdded);
+
+  // Handle delete
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/properties/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        // Remove the deleted property from the state
+        setMyAdded((prevMyAdded) =>
+          prevMyAdded.filter((property) => property._id !== id)
+        );
+        toast.success('Property successfully deleted!');
+      })
+      .catch((error) => {
+        console.error("Error deleting property:", error);
+      });
+  };
+
+  // handle upadate
+  // const handleUpdate=(id)=>{
+  //   console.log('click');
+  // }
   return (
     <div>
       my added:{MyAdded?.length}
@@ -63,7 +86,15 @@ const MyAdded = () => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>{MyAdded?.map(property=><RoomDataRow key={property?._id} property={property}></RoomDataRow>)}</tbody>
+                  <tbody>
+                    {MyAdded?.map((property) => (
+                      <RoomDataRow
+                        key={property?._id}
+                        property={property}
+                        handleDelete={handleDelete}
+                      ></RoomDataRow>
+                    ))}
+                  </tbody>
                 </table>
               </div>
             </div>
