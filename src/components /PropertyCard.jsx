@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const PropertyCard = ({ singleProperty }) => {
-  console.log(singleProperty);
+  // console.log(singleProperty);
   const {
     property_image,
     agent_name,

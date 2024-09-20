@@ -1,13 +1,47 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
+import HostModal from "../../components /Modal/HostRequestModal";
+import axios from "axios";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut();
     toast.success("Logged out successfully");
+  };
+
+  // for modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const modalHandler = async () => {
+    console.log("I want to be a host");
+    try {
+      const currentUser = {
+        email: user?.email,
+        role: "guest",
+        status: "Requested",
+      };
+      const { data } = await axios.put(
+        `http://localhost:5000/user`,
+        currentUser
+      );
+      console.log(data)
+      if (data.modifiedCount > 0) {
+        toast.success("Success! Please wait for admin confirmation");
+      } else {
+        toast.success("Please!, Wait for admin approval👊");
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    } finally {
+      closeModal();
+    }
   };
 
   return (
@@ -31,9 +65,26 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashbord/cart">
-              <div>cart</div>
-            </NavLink>
+            <>
+              <div className="hidden md:block">
+                {/* {!user && ( */}
+                {
+                  <button
+                    disabled={!user}
+                    onClick={() => setIsModalOpen(true)}
+                    className="px-4 py-3 text-sm font-semibold transition rounded-full cursor-pointer disabled:cursor-not-allowed hover:bg-neutral-100"
+                  >
+                    Host your home
+                  </button>
+                }
+              </div>
+            </>
+            {/* Modal */}
+            <HostModal
+              isOpen={isModalOpen}
+              closeModal={closeModal}
+              modalHandler={modalHandler}
+            />
           </li>
 
           {!user && (
@@ -64,19 +115,11 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
             >
-              {/* <li>
-                <div className="justify-between">Add Job</div>
-              </li>
               <li>
-                <div>My Posted Jobs</div>
+                <Link to="/dashbord" className="bg-black">
+                  Dashboad
+                </Link>
               </li>
-              <li>
-                <div>My Bids</div>
-              </li>
-              <li>
-                <div>Bid Requests</div>
-              </li> */}
-              <li><Link to='/dashbord' className="bg-black">Dashboad</Link></li>
               <li className="mt-2">
                 <button
                   onClick={handleLogOut}

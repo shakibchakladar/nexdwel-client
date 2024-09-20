@@ -11,6 +11,7 @@ import Dashbord from "../layout/Dashbord";
 import Staticks from "../pages/dashbord/common/Staticks";
 import MyAdded from "../pages/dashbord/agent/MyAdded";
 import AddProperty from "../pages/dashbord/agent/addProperty/AddProperty";
+import Profile from "../components /Dashboard/common/Profile";
 
 
 export const router = createBrowserRouter([
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
        path:'my-added',
        element:<MyAdded></MyAdded>
+      },
+      {
+        path:'profile',
+        element:<Profile></Profile>
       }
     ]
   }
