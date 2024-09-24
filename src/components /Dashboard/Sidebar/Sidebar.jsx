@@ -1,24 +1,34 @@
 import { useContext, useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
-import { BsFingerprint, BsGraphUp, BsFillHouseAddFill } from "react-icons/bs";
-import { GrUserAdmin } from "react-icons/gr";
+import { BsGraphUp } from "react-icons/bs";
+// import { GrUserAdmin } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
-import { MdHomeWork } from "react-icons/md";
-import { NavLink, Link } from "react-router-dom";
+// import { MdHomeWork } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useRoll from "../../hooks/useRoll";
 import MenuItem from "../menu/MenuItem";
+import HostMenu from "../menu/HostMenu";
+import GuestMenu from "../menu/Guestmenu";
+import AdminMenu from "../menu/AdminMenu";
+import ToggleBtn from "../../../pages/shared/button/ToggleBtn";
 
 const Sidebar = () => {
   const { logOut } = useContext(AuthContext);
   const [isActive, setActive] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [role] = useRoll();
   console.log(role);
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
+  };
+  // togglehandler
+  const toggleHandler = (event) => {
+    console.log(event.target.checked);
+    setToggle(event.target.checked);
   };
   return (
     <>
@@ -71,6 +81,9 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             {/* Conditional toggle button here.. */}
+            {role === "agent" && (
+              <ToggleBtn toggleHandler={toggleHandler} toggle={toggle} />
+            )}
 
             {/*  Menu Items */}
             <nav>
@@ -80,26 +93,9 @@ const Sidebar = () => {
                 address="/dashbord"
                 icon={BsGraphUp}
               />
-
-              {/* Profile Menu */}
-              {/* <MenuItem
-                label="Profile"
-                address="/dashboard/profile"
-                icon={FcSettings}
-              /> */}
-              {/* Add Room */}
-              <MenuItem
-                label="Add Property"
-                address="add-property"
-                icon={BsFillHouseAddFill}
-              />
-
-              {/* My Listing */}
-              <MenuItem
-                label="My Addded properties"
-                address="my-added"
-                icon={MdHomeWork}
-              />
+              {/* {role === "user" && <GuestMenu />} */}
+              {role === "agent" && toggle?<HostMenu/>:<GuestMenu/>}
+              {role === "admin" && <AdminMenu />}
             </nav>
           </div>
         </div>
@@ -108,11 +104,7 @@ const Sidebar = () => {
           <hr />
 
           {/* Profile Menu */}
-          <MenuItem
-            label="Profile"
-            address="profile"
-            icon={FcSettings}
-          />
+          <MenuItem label="Profile" address="profile" icon={FcSettings} />
           <button
             onClick={logOut}
             className="flex items-center w-full px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform hover:bg-gray-300 hover:text-gray-700"

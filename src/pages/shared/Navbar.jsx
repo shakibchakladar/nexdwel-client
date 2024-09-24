@@ -74,7 +74,7 @@ const Navbar = () => {
                     onClick={() => setIsModalOpen(true)}
                     className="px-4 py-3 text-sm font-semibold transition rounded-full cursor-pointer disabled:cursor-not-allowed hover:bg-neutral-100"
                   >
-                    Host your home
+                    Request to be an agent
                   </button>
                 }
               </div>

@@ -12,7 +12,7 @@ import Staticks from "../pages/dashbord/common/Staticks";
 import MyAdded from "../pages/dashbord/agent/MyAdded";
 import AddProperty from "../pages/dashbord/agent/addProperty/AddProperty";
 import Profile from "../components /Dashboard/common/Profile";
-
+import ManageUsers from "../pages/dashbord/admin/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -51,25 +51,53 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path:'/dashbord',
-    element:<Dashbord></Dashbord>,
-    children:[
+    path: "/dashbord",
+    element: (
+      <PrivateRoute>
+        <Dashbord></Dashbord>
+      </PrivateRoute>
+    ),
+    children: [
       {
-       index:true,
-       element:<Staticks></Staticks>
+        index: true,
+        element: (
+          <PrivateRoute>
+            <Staticks></Staticks>
+          </PrivateRoute>
+        ),
       },
-    {
-      path:'add-property',
-      element:<AddProperty></AddProperty>
-    },
       {
-       path:'my-added',
-       element:<MyAdded></MyAdded>
+        path: "add-property",
+        element: (
+          <PrivateRoute>
+            <AddProperty></AddProperty>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'profile',
-        element:<Profile></Profile>
-      }
-    ]
-  }
+        path: "my-added",
+        element: (
+          <PrivateRoute>
+            <MyAdded></MyAdded>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <PrivateRoute>
+            <ManageUsers></ManageUsers>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
 ]);
