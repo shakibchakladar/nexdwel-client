@@ -104,7 +104,7 @@ const Sidebar = () => {
           <hr />
 
           {/* Profile Menu */}
-          <MenuItem label="Profile" address="profile" icon={FcSettings} />
+          <MenuItem label="MyProfile" address="profile" icon={FcSettings} />
           <button
             onClick={logOut}
             className="flex items-center w-full px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform hover:bg-gray-300 hover:text-gray-700"

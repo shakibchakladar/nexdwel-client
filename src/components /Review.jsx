@@ -21,7 +21,7 @@ const Review = () => {
             />
             <div className="ml-3">
               <h5 className="text-lg font-semibold text-gray-900 ">
-                Name:Md Karim
+                Name:John doe
               </h5>
               <p className="text-sm text-gray-500">
                 The property exceeded our expectations! The views were stunning,
@@ -38,7 +38,7 @@ const Review = () => {
           <div className="flex items-center p-5">
             <img
               className="w-12 h-12 rounded-full"
-              src="https://i.ibb.co/6Ph39fw/linkedin-sales-solutions-YDVdprpg-Hv4-unsplash.jpg"
+              src="https://i.ibb.co.com/1nQ1913/austin-distel-w-D1-LRb9-Oe-Eo-unsplash.jpg"
               alt=""
             />
             <div className="ml-3">
@@ -60,12 +60,12 @@ const Review = () => {
           <div className="flex items-center p-5">
             <img
               className="w-12 h-12 rounded-full"
-              src="https://i.ibb.co/6Ph39fw/linkedin-sales-solutions-YDVdprpg-Hv4-unsplash.jpg"
+              src="https://i.ibb.co.com/TqfVzd0/austin-distel-Vv-Acr-Va56fc-unsplash.jpg"
               alt=""
             />
             <div className="ml-3">
               <h5 className="text-lg font-semibold text-gray-900 ">
-                Name:Md Karim
+                Name:Md Rahim
               </h5>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 The property exceeded our expectations! The views were stunning,

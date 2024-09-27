@@ -50,7 +50,7 @@ const AddPropertyForm = ({ handleSubmit, setImagePreview, imagePreview,imageText
                       accept="image/*"
                       hidden
                     />
-                    <div className="p-1 px-3 font-semibold text-white bg-purple-500 border border-gray-300 rounded cursor-pointer hover:bg-rose-500">
+                    <div className="px-3 py-3 font-semibold text-white bg-purple-500 border border-gray-300 rounded cursor-pointer hover:bg-rose-500">
                       {/* Upload Image */}
                       {/* {imageText} */}
                       {/* {imageText.split('.')[0].slice(0,15)+'..'+imageText.split('.')[1]} */}
@@ -76,6 +76,17 @@ const AddPropertyForm = ({ handleSubmit, setImagePreview, imagePreview,imageText
                 placeholder="Price"
                 required
               />
+            </div>
+            <div className='space-y-1 text-sm'>
+              <label htmlFor='description' className='block text-gray-600'>
+                Description
+              </label>
+
+              <textarea
+                id='description'
+                className='block w-full h-32 px-4 py-3 text-gray-800 border rounded-md focus:rose-300 border-rose-300 focus:outline-rose-500 '
+                name='description'
+              ></textarea>
             </div>
             <div className="flex justify-between gap-2">
               <div className="w-full">

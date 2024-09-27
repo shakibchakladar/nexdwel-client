@@ -11,7 +11,7 @@ const AddvCard = ({add}) => {
     <p>price range: {priceRange}</p>
     <p>{verificationStatus}</p>
     <div className="justify-end card-actions">
-      <button className="btn btn-primary">Details</button>
+      {/* <button className="btn btn-primary">Details</button> */}
     </div>
   </div>
 </div>

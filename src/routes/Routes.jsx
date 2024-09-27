@@ -13,6 +13,8 @@ import MyAdded from "../pages/dashbord/agent/MyAdded";
 import AddProperty from "../pages/dashbord/agent/addProperty/AddProperty";
 import Profile from "../components /Dashboard/common/Profile";
 import ManageUsers from "../pages/dashbord/admin/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import HostRoute from "./HostRoute";
 
 export const router = createBrowserRouter([
   {
@@ -70,7 +72,9 @@ export const router = createBrowserRouter([
         path: "add-property",
         element: (
           <PrivateRoute>
-            <AddProperty></AddProperty>
+            <HostRoute>
+              <AddProperty></AddProperty>
+            </HostRoute>
           </PrivateRoute>
         ),
       },
@@ -78,7 +82,9 @@ export const router = createBrowserRouter([
         path: "my-added",
         element: (
           <PrivateRoute>
+            <HostRoute>
             <MyAdded></MyAdded>
+            </HostRoute>
           </PrivateRoute>
         ),
       },
@@ -86,7 +92,9 @@ export const router = createBrowserRouter([
         path: "manage-users",
         element: (
           <PrivateRoute>
-            <ManageUsers></ManageUsers>
+            <AdminRoute>
+              <ManageUsers></ManageUsers>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },

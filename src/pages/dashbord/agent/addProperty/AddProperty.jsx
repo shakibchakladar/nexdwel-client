@@ -25,6 +25,7 @@ const AddProperty = () => {
     const property_location = form.location.value.trim();
     const property_image = form.image.files[0];
     const price_range = form.price.value.trim();
+    const description=form.description.value;
 
     if (!property_title || !property_location || !price_range || !property_image) {
       setError("Please fill in all fields and select an image.");
@@ -41,6 +42,7 @@ const AddProperty = () => {
     try {
       const image_url = await imageUpload(property_image);
       console.log(image_url);
+      console.log(agent);
 
       const propertyData = {
         property_title,
@@ -49,6 +51,8 @@ const AddProperty = () => {
         agent_name:agent.name,
         agent_email:agent.email,
         property_image: image_url,
+        agent_image:agent.imagea,
+        description
       };
       console.table(propertyData);
 

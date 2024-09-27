@@ -13,7 +13,7 @@ const PropertyCard = ({ singleProperty }) => {
   } = singleProperty;
   // console.log(singleProperty._id);
   return (
-    <div className="shadow-xl card bg-base-100 w-96">
+    <div className="shadow-xl card bg-slate-300 w-96">
       <figure>
         <img src={property_image} alt="Shoes" />
       </figure>

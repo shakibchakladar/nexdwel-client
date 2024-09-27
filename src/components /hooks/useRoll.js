@@ -1,25 +1,3 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../../provider/AuthProvider";
-// import { useQuery } from "@tanstack/react-query";
-// import axios from "axios";
-
-// const useRoll = () => {
-//   const { user,loading } = useContext(AuthContext);
-// //   const [role, setRole] = useState();
-
-//   const {data:role ,isLoading}=useQuery({
-//     queryKey:['role',user?.email],
-//     enabled:!loading &&user?.email,
-//     queryFn:async ()=>{
-//         const {data}= await axios(`http://localhost:5000/user/{user?.email}`)
-//         return data.role;
-//     }
-//   })
-// //   fetch user info using logged in user email
-//   return [role,isLoading];
-// };
-
-// export default useRoll;
 
 
 import { useContext, useState, useEffect } from "react";
