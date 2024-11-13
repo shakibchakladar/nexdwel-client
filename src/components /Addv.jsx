@@ -18,7 +18,7 @@ const Addv = () => {
           </h2>
           <p>Here you can see our top and new collections</p>
         </div>
-        <div className="grid grid-cols-1 p-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-3">
          {
          addv?.map(add=><AddvCard key={add._id} add={add}></AddvCard>)
          }
