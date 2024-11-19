@@ -120,6 +120,7 @@ const Details = () => {
               </div>
 
               {/* Wishlist Button */}
+
               <button
                 className={`mt-6 px-6 py-3 w-full text-lg font-semibold rounded-md transition-all duration-300 ${
                   isLoading ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-600"

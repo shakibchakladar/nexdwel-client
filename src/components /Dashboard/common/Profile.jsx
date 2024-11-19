@@ -6,7 +6,6 @@ import useRoll from '../../hooks/useRoll'
 const Profile = () => {
   const { user,loading } = useContext(AuthContext)
   const [role,isLoading]=useRoll();
-console.log(role);
 //   console.log(user)
   return (
     <div className='flex items-center justify-center h-screen'>

@@ -2,13 +2,14 @@
 import { useState } from "react";
 import { FaHeart, FaHandshake } from "react-icons/fa"; // Icons for the buttons
 import DeleteModal from "../../../../../components /Modal/DeleteModal";
+import { Link } from "react-router-dom";
 
 const WishlistCard = ({ wishItem, handleDelete }) => {
-    const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
-    const closeDeleteModal = () => {
-        setIsDeleteOpen(false);
-      };
+  const closeDeleteModal = () => {
+    setIsDeleteOpen(false);
+  };
 
   return (
     <div className="flex items-center p-4 mb-4 transition-shadow duration-150 bg-white border rounded-lg shadow-sm hover:shadow-md">
@@ -23,13 +24,11 @@ const WishlistCard = ({ wishItem, handleDelete }) => {
       <div className="flex flex-col flex-grow">
         {/* Property Title */}
         <h3 className="text-lg font-semibold text-gray-800 truncate">
-          {wishItem?.property_title
-          }
+          {wishItem?.property_title}
         </h3>
 
         {/* Location */}
-        <p className="text-sm text-gray-500">{wishItem?.property_location
-        }</p>
+        <p className="text-sm text-gray-500">{wishItem?.property_location}</p>
 
         {/* Price and Verification */}
         <div className="flex items-center justify-between mt-2">
@@ -63,19 +62,25 @@ const WishlistCard = ({ wishItem, handleDelete }) => {
         {/* Make an Offer Button */}
         <div className="flex items-center gap-2">
           <FaHandshake size={30} />
-          <button className="btn">Make an offer</button>
+          <Link to={`/offer/${wishItem?._id}`}>
+          <button className="transition-transform duration-300 btn btn-primary hover:scale-105">
+            Make an offer
+          </button>
+        </Link>
         </div>
 
         {/* Remove Button */}
         <div className="flex items-center gap-2">
-        <FaHeart size={30} />
-        <button onClick={() => setIsDeleteOpen(true)} className="btn">Remove</button>
+          <FaHeart size={30} />
+          <button onClick={() => setIsDeleteOpen(true)} className="btn">
+            Remove
+          </button>
         </div>
         <DeleteModal
           isOpen={isDeleteOpen}
           closeModal={closeDeleteModal}
           handleDelete={handleDelete}
-          id={wishItem?._id} 
+          id={wishItem?._id}
         />
       </div>
     </div>
