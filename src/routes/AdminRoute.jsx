@@ -10,6 +10,6 @@ const AdminRoute = ({ children }) => {
 };
 
 AdminRoute.propTypes = {
-  children: PropTypes.element, // Correctly use PropTypes with capital 'P'
+  children: PropTypes.element, 
 };
 export default AdminRoute;

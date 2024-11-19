@@ -7,6 +7,9 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { FaHeartbeat } from "react-icons/fa";
+import { MdOutlineRateReview } from "react-icons/md";
+// import { FaHeartbeat } from "react-icons/fa";
 
 const GuestMenu = () => {
   const{user}=useContext(AuthContext)
@@ -44,10 +47,21 @@ const GuestMenu = () => {
   };
   return (
     <>
+     
+      <MenuItem
+        icon={FaHeartbeat}
+        label="Wishlist"
+        address="wishlist"
+      />
       <MenuItem
         icon={BsFingerprint}
-        label="My Bookings"
+        label="Property Bougth"
         address="my-bookings"
+      />
+      <MenuItem
+        icon={MdOutlineRateReview}
+        label="My Reviews"
+        address="my-reviews"
       />
 
       {role === "user" && (

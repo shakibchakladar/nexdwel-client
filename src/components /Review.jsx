@@ -12,70 +12,78 @@ const Review = () => {
           <AddvCard key={add._id} add={add}></AddvCard>
         ))} */}
 
-<div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700">
+        <div className="w-full transition-all duration-300 transform border border-indigo-300 rounded-lg shadow-lg bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-2xl hover:scale-105 dark:border-gray-700">
           <div className="flex items-center p-5">
             <img
-              className="w-12 h-12 rounded-full"
+              className="w-16 h-16 border-4 border-indigo-500 rounded-full shadow-md"
               src="https://i.ibb.co/6Ph39fw/linkedin-sales-solutions-YDVdprpg-Hv4-unsplash.jpg"
-              alt=""
+              alt="Profile"
             />
-            <div className="ml-3">
-              <h5 className="text-lg font-semibold text-gray-900 ">
-                Name:John doe
+            <div className="ml-5">
+              <h5 className="text-lg font-bold text-indigo-900 dark:text-white">
+                John Doe
               </h5>
-              <p className="text-sm text-gray-500">
-                The property exceeded our expectations! The views were stunning,
-                and the amenities were top-notch. Highly recommend for a
-                relaxing getaway
+              <p className="mt-1 text-sm leading-relaxed text-indigo-700 dark:text-gray-400">
+                "The property exceeded our expectations! The views were
+                stunning, and the amenities were top-notch. Highly recommend for
+                a relaxing getaway."
               </p>
             </div>
           </div>
-          <div className="px-5 pb-5">
-            <p className="text-gray-700 dark:text-gray-300"></p>
+          <div className="px-5 pb-5 text-right">
+            <button className="px-4 py-2 font-semibold text-white transition-transform duration-300 rounded-full shadow-md bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-110">
+              Read More
+            </button>
           </div>
         </div>
-        <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700">
+
+        <div className="w-full transition-all duration-300 transform border border-indigo-300 rounded-lg shadow-lg bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-2xl hover:scale-105 dark:border-gray-700">
           <div className="flex items-center p-5">
             <img
-              className="w-12 h-12 rounded-full"
-              src="https://i.ibb.co.com/1nQ1913/austin-distel-w-D1-LRb9-Oe-Eo-unsplash.jpg"
-              alt=""
+              className="w-16 h-16 border-4 border-indigo-500 rounded-full shadow-md"
+              src="https://i.ibb.co/6Ph39fw/linkedin-sales-solutions-YDVdprpg-Hv4-unsplash.jpg"
+              alt="Profile"
             />
-            <div className="ml-3">
-              <h5 className="text-lg font-semibold text-gray-900 ">
-                Name:Md Karim
+            <div className="ml-5">
+              <h5 className="text-lg font-bold text-indigo-900 dark:text-white">
+                John Doe
               </h5>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                The property exceeded our expectations! The views were stunning,
-                and the amenities were top-notch. Highly recommend for a
-                relaxing getaway
+              <p className="mt-1 text-sm leading-relaxed text-indigo-700 dark:text-gray-400">
+                "The property exceeded our expectations! The views were
+                stunning, and the amenities were top-notch. Highly recommend for
+                a relaxing getaway."
               </p>
             </div>
           </div>
-          <div className="px-5 pb-5">
-            <p className="text-gray-700 dark:text-gray-300"></p>
+          <div className="px-5 pb-5 text-right">
+            <button className="px-4 py-2 font-semibold text-white transition-transform duration-300 rounded-full shadow-md bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-110">
+              Read More
+            </button>
           </div>
         </div>
-        <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700">
+
+        <div className="w-full transition-all duration-300 transform border border-indigo-300 rounded-lg shadow-lg bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-2xl hover:scale-105 dark:border-gray-700">
           <div className="flex items-center p-5">
             <img
-              className="w-12 h-12 rounded-full"
-              src="https://i.ibb.co.com/TqfVzd0/austin-distel-Vv-Acr-Va56fc-unsplash.jpg"
-              alt=""
+              className="w-16 h-16 border-4 border-indigo-500 rounded-full shadow-md"
+              src="https://i.ibb.co/6Ph39fw/linkedin-sales-solutions-YDVdprpg-Hv4-unsplash.jpg"
+              alt="Profile"
             />
-            <div className="ml-3">
-              <h5 className="text-lg font-semibold text-gray-900 ">
-                Name:Md Rahim
+            <div className="ml-5">
+              <h5 className="text-lg font-bold text-indigo-900 dark:text-white">
+                John Doe
               </h5>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                The property exceeded our expectations! The views were stunning,
-                and the amenities were top-notch. Highly recommend for a
-                relaxing getaway
+              <p className="mt-1 text-sm leading-relaxed text-indigo-700 dark:text-gray-400">
+                "The property exceeded our expectations! The views were
+                stunning, and the amenities were top-notch. Highly recommend for
+                a relaxing getaway."
               </p>
             </div>
           </div>
-          <div className="px-5 pb-5">
-            <p className="text-gray-700 dark:text-gray-300"></p>
+          <div className="px-5 pb-5 text-right">
+            <button className="px-4 py-2 font-semibold text-white transition-transform duration-300 rounded-full shadow-md bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-110">
+              Read More
+            </button>
           </div>
         </div>
       </div>

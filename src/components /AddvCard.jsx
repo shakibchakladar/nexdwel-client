@@ -4,7 +4,7 @@ const AddvCard = ({add}) => {
     // console.log(add);
     const {image,location,priceRange,verificationStatus}=add;
   return (
-    <div className="shadow-xl card card-compact w-96 bg-base-100">
+    <div className="shadow-xl card bg-slate-300 w-90 hover:scale-[1.05] transition-transform duration-300 delay-150 rounded-lg hover:shadow-2x">
   <figure><img src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">Location: {location}</h2>

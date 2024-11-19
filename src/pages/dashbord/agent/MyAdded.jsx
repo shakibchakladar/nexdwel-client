@@ -27,7 +27,6 @@ const MyAdded = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        // Remove the deleted property from the state
         setMyAdded((prevMyAdded) =>
           prevMyAdded.filter((property) => property._id !== id)
         );

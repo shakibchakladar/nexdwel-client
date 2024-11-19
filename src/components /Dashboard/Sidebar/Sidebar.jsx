@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
-import { BsGraphUp } from "react-icons/bs";
-// import { GrUserAdmin } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
 // import { MdHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -88,14 +86,14 @@ const Sidebar = () => {
             {/*  Menu Items */}
             <nav>
               {/* Statistics */}
-              <MenuItem
-                label="Statistics"
-                address="/dashbord"
-                icon={BsGraphUp}
-              />
-              {/* {role === "user" && <GuestMenu />} */}
+              <MenuItem label="MyProfile" address="profile" icon={FcSettings} />
+
+              {/* {role === "user" && <GuestMenu />}
               {role === "agent" && toggle?<HostMenu/>:<GuestMenu/>}
+              {role === "admin" && <AdminMenu />} */}
               {role === "admin" && <AdminMenu />}
+              {role === "agent" && (toggle ? <HostMenu /> : <GuestMenu />)}
+              {role === "user" && <GuestMenu />}
             </nav>
           </div>
         </div>
@@ -104,7 +102,7 @@ const Sidebar = () => {
           <hr />
 
           {/* Profile Menu */}
-          <MenuItem label="MyProfile" address="profile" icon={FcSettings} />
+
           <button
             onClick={logOut}
             className="flex items-center w-full px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform hover:bg-gray-300 hover:text-gray-700"

@@ -8,13 +8,13 @@ import PrivateRoute from "./PrivateRoute";
 import AllProperties from "../pages/AllProperties";
 import Details from "../components /Details";
 import Dashbord from "../layout/Dashbord";
-import Staticks from "../pages/dashbord/common/Staticks";
 import MyAdded from "../pages/dashbord/agent/MyAdded";
 import AddProperty from "../pages/dashbord/agent/addProperty/AddProperty";
 import Profile from "../components /Dashboard/common/Profile";
 import ManageUsers from "../pages/dashbord/admin/ManageUsers";
 import AdminRoute from "./AdminRoute";
 import HostRoute from "./HostRoute";
+import Wishlist from "../pages/dashbord/user/Wishlist/Wishlist";
 
 export const router = createBrowserRouter([
   {
@@ -64,9 +64,17 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            <Staticks></Staticks>
+            {/* <Staticks></Staticks> */}
+            <Profile/>
           </PrivateRoute>
         ),
+      },
+      {
+        path:'wishlist',
+        element:<PrivateRoute>
+          <Wishlist></Wishlist>
+          
+        </PrivateRoute>
       },
       {
         path: "add-property",

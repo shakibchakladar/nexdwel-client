@@ -19,7 +19,7 @@ const AllProperties = () => {
   return (
     <div className="pt-12">
       <h2>All properties {property.length}</h2>
-      <div className="grid grid-cols-1 px-5 md:grid-cols-3 p">
+      <div className="grid grid-cols-1 gap-5 px-5 m-2 md:grid-cols-3">
         {property?.map((singleProperty) => (
           <PropertyCard
             key={singleProperty._id}
