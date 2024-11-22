@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import RoomDataRow from "../../../components /RoomDataRow";
 import toast from "react-hot-toast";
-// import { Helmet } from "react-helmet-async";
 
 const MyAdded = () => {
   const { user } = useContext(AuthContext);
@@ -30,17 +29,13 @@ const MyAdded = () => {
         setMyAdded((prevMyAdded) =>
           prevMyAdded.filter((property) => property._id !== id)
         );
-        toast.success('Property successfully deleted!');
+        toast.success("Property successfully deleted!");
       })
       .catch((error) => {
         console.error("Error deleting property:", error);
       });
   };
 
-  // handle upadate
-  // const handleUpdate=(id)=>{
-  //   console.log('click');
-  // }
   return (
     <div>
       my added:{MyAdded?.length}
@@ -77,12 +72,12 @@ const MyAdded = () => {
                       >
                         Delete
                       </th>
-                      <th
+                      {/* <th
                         scope="col"
                         className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
                       >
                         Update
-                      </th>
+                      </th> */}
                     </tr>
                   </thead>
                   <tbody>
