@@ -21,7 +21,7 @@ const GuestMenu = () => {
   };
 
   const modalHandler = async () => {
-    console.log("I want to be a host");
+    // console.log("I want to be a host");
     try {
       const currentUser = {
         email: user?.email,
@@ -56,7 +56,7 @@ const GuestMenu = () => {
       <MenuItem
         icon={BsFingerprint}
         label="Property Bougth"
-        address="my-bookings"
+        address="property-bought"
       />
       <MenuItem
         icon={MdOutlineRateReview}
@@ -71,7 +71,7 @@ const GuestMenu = () => {
         >
           <GrUserAdmin className="w-5 h-5" />
 
-          <span className="mx-4 font-medium">Become A Host</span>
+          <span className="mx-4 font-medium">Become An Agent</span>
         </div>
       )}
       <HostModal

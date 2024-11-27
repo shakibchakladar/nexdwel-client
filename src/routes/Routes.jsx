@@ -16,6 +16,7 @@ import AdminRoute from "./AdminRoute";
 import HostRoute from "./HostRoute";
 import Wishlist from "../pages/dashbord/user/Wishlist/Wishlist";
 import GetOffer from "../pages/GetOffer";
+import PropertyBought from "../pages/dashbord/user/PropertyBought";
 
 export const router = createBrowserRouter([
   {
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
         path: "/offer/:id",
         element: (
           <PrivateRoute>
-            <GetOffer/>
+            <GetOffer />
           </PrivateRoute>
         ),
       },
@@ -73,7 +74,6 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            {/* <Staticks></Staticks> */}
             <Profile />
           </PrivateRoute>
         ),
@@ -121,6 +121,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "property-bought",
+        element: (
+          <PrivateRoute>
+            <PropertyBought/>
           </PrivateRoute>
         ),
       },

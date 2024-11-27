@@ -4,16 +4,14 @@ const Banner = () => {
   return (
     <Carousel>
       <div>
-        <img src="https://i.ibb.co/5vf4wSp/garrett-parker-x-QWLtl-Qb7-L0-unsplash.jpg" />
-        <p className="legend">Legend 1</p>
+        <img src="https://img.freepik.com/free-photo/3d-electric-car-building_23-2148972401.jpg?ga=GA1.1.805179126.1731543862&semt=ais_hybrid" />
+        {/* <p className="legend">Legend 1</p> */}
       </div>
       <div>
-        <img src="https://i.ibb.co/RgZTj7P/frames-for-your-heart-2d4l-AQAlb-DA-unsplash.jpg" />
-        <p className="legend">Legend 2</p>
+        <img src="https://i.ibb.co.com/BgRyHtZ/lotus-design-n-print-w-Rz-Barqn3hs-unsplash.jpg" />
       </div>
       <div>
-        <img src="https://i.ibb.co/njJPHkg/brian-babb-Xbw-Hrt87m-Q0-unsplash.jpg" />
-        <p className="legend">Legend 3</p>
+        <img src="https://i.ibb.co.com/Y0KLgDB/dillon-kydd-2ke-CPb73a-QY-unsplash-1.jpg" />
       </div>
     </Carousel>
   );

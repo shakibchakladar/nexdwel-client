@@ -2,13 +2,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import BookingModal from "../components /Modal/BookingModal";
-
 const GetOffer = () => {
   const { id } = useParams();
   const [property, setProperty] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
-  const [bookingInfo, setBookingInfo] = useState(null); // Modal data
   const { user } = useContext(AuthContext);
 
   // Fetch property data
@@ -17,11 +13,6 @@ const GetOffer = () => {
       .then((res) => res.json())
       .then((data) => setProperty(data));
   }, [id]);
-
-  // Close modal
-  const closeModal = () => {
-    setIsOpen(false);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,9 +36,6 @@ const GetOffer = () => {
       buyerEmail,
     };
     console.log(bookingData);
-
-    setBookingInfo(bookingData); 
-    setIsOpen(true);
   };
 
   return (
@@ -111,7 +99,7 @@ const GetOffer = () => {
                   name="agentemail"
                   id="agent-email"
                   type="text"
-                  value={property.agent_email || ""}
+                  value={property.agent_email ||"shakibchakladar@gmail.com"}
                   readOnly
                 />
               </div>
@@ -168,15 +156,6 @@ const GetOffer = () => {
             Offer
           </button>
         </form>
-
-        {/* Modal */}
-        {isOpen && (
-          <BookingModal
-            isOpen={isOpen}
-            closeModal={closeModal}
-            bookingInfo={bookingInfo}
-          />
-        )}
       </div>
     </div>
   );
