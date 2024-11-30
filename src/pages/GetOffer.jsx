@@ -2,10 +2,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components /form/CheckoutForm";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 const GetOffer = () => {
   const { id } = useParams();
   const [property, setProperty] = useState({});
   const { user } = useContext(AuthContext);
+  
 
   // Fetch property data
   useEffect(() => {
@@ -42,6 +49,9 @@ const GetOffer = () => {
     <div>
       <h2 className="pt-5 text-2xl font-bold text-center">
         Get Offer For Property
+        <Elements stripe={stripePromise}>
+          <CheckoutForm/>
+        </Elements>
       </h2>
       <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
         <form onSubmit={handleSubmit} className="w-full p-10">

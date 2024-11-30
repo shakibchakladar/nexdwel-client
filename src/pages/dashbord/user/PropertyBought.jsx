@@ -1,4 +1,4 @@
-const PropertyBought = () => {
+const PropertyBought = ({property}) => {
     return (
         <div>
             <h2>Property bought </h2>
