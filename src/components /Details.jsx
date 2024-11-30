@@ -9,12 +9,8 @@ const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [property, setProperty] = useState({});
-  // const [reviews, setReviews] = useState([]);
-  // const [showReviewModal, setShowReviewModal] = useState(false);
-  // const [reviewText, setReviewText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [wishlistMessage, setWishlistMessage] = useState("");
-
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -71,6 +67,9 @@ const Details = () => {
         });
         setWishlistMessage("Property added to wishlist!");
       }
+      navigate("/dashbord/wishlist")
+      // /dashbord/wishlist
+
     } catch (err) {
       console.error("Error in wishlist API:", err);
       toast.error("Failed to add property. Please try again.");

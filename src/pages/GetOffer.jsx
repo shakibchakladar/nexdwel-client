@@ -1,24 +1,31 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import {loadStripe} from '@stripe/stripe-js';
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "../components /form/CheckoutForm";
-
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-
+import Swal from "sweetalert2";
 const GetOffer = () => {
   const { id } = useParams();
-  const [property, setProperty] = useState({});
   const { user } = useContext(AuthContext);
-  
-
+  const [property, setProperty] = useState({});
+  const [loading, setLoading] = useState(true);
+  const navigate=useNavigate();
   // Fetch property data
   useEffect(() => {
     fetch(`http://localhost:5000/offer/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProperty(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch property details");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProperty(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setLoading(false);
+      });
   }, [id]);
 
   const handleSubmit = (e) => {
@@ -33,7 +40,7 @@ const GetOffer = () => {
     const buyerName = user?.displayName;
     const buyerEmail = user?.email;
 
-    const bookingData = {
+    const offeredData = {
       offeredPrice,
       propertyLocation,
       propertyTitle,
@@ -42,16 +49,47 @@ const GetOffer = () => {
       buyerName,
       buyerEmail,
     };
-    console.log(bookingData);
+    // POST the offeredData to the backend
+    fetch("http://localhost:5000/add-offer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(offeredData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Property offered successfully!",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          navigate("/dashbord/property-bought")
+
+        } else {
+          alert("Failed to submit your offer. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting offer:", error);
+        alert("An error occurred while submitting your offer.");
+      });
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-xl font-semibold">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div>
       <h2 className="pt-5 text-2xl font-bold text-center">
         Get Offer For Property
-        <Elements stripe={stripePromise}>
-          <CheckoutForm/>
-        </Elements>
       </h2>
       <div className="w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50">
         <form onSubmit={handleSubmit} className="w-full p-10">
@@ -109,7 +147,7 @@ const GetOffer = () => {
                   name="agentemail"
                   id="agent-email"
                   type="text"
-                  value={property.agent_email ||"shakibchakladar@gmail.com"}
+                  value={property.agent_email || "shakibchakladar@gmail.com"}
                   readOnly
                 />
               </div>
