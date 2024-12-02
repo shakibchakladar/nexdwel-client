@@ -17,46 +17,36 @@ const PropertyBought = () => {
            <table className='min-w-full leading-normal'>
                 <thead>
                   <tr>
+                   
                     <th
                       scope='col'
                       className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
                     >
-                      Title
+                      Name
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
                     >
-                      Info
+                      Location
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
                     >
-                      Price
+                     Offered Price
                     </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
-                    >
-                      From
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
-                    >
-                      To
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200'
-                    >
-                      Action
-                    </th>
+                
+                  
+                   
+                   
                   </tr>
                 </thead>
                 <tbody>
-                    <BookingDataRow booking={property}/>
+                    {/* <BookingDataRow property={property}/> */}
+                    {
+                        property.map(p=><BookingDataRow key={p._id} p={p}/>)
+                    }
                 </tbody>
               </table>
            </div>
