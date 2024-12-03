@@ -34,7 +34,7 @@ const Wishlist = () => {
 
 // handle remove
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/properties/${id}`, {
+    fetch(`http://localhost:5000/wishlist/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

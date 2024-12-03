@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
-const BookingDataRow = ({ p }) => {
-  console.log(p);
+const BookingDataRow = ({ p,handleDelete }) => {
   return (
     <tr>
       <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -41,7 +40,7 @@ const BookingDataRow = ({ p }) => {
       </td>
 
       <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-        <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900 cursor-pointer">
+        <span onClick={()=>handleDelete(p._id)} className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900 cursor-pointer">
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-red-200 rounded-full opacity-50"

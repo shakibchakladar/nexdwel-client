@@ -1,6 +1,8 @@
 import axios from "axios";
 import BookingDataRow from "../../../components /BookingDataRow";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+
 const PropertyBought = () => {
   const [loading, setLoading] = useState(true);
   const [property, setProperty] = useState([]);
@@ -18,6 +20,21 @@ const PropertyBought = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:5000/offered/${id}`)
+      .then(() => {
+        setProperty((prevProperty) =>
+          prevProperty.filter((property) => property._id !== id)
+        );
+        toast.success('Property successfully removed!');
+      })
+      .catch((error) => {
+        console.error("Error deleting property:", error);
+        toast.error('Failed to remove the property. Please try again.');
+      });
+  };
 
   return (
     <div>
@@ -54,7 +71,7 @@ const PropertyBought = () => {
           </thead>
           <tbody>
             {property.map((p) => (
-              <BookingDataRow key={p._id} p={p} />
+              <BookingDataRow key={p._id} p={p} handleDelete={handleDelete} />
             ))}
           </tbody>
         </table>
