@@ -1,10 +1,9 @@
+import SectionTitle from "../pages/shared/SectionTitle";
+
 const OurAgent = () => {
   return (
     <div className="p-5 m-5 space-y-2 text-center">
-      <h2 className="text-3xl font-bold text-purple-500 font-poppins">Our Agent</h2>
-      <p className="p-2 m-2">
-        Lets introducing with our Agents of NextDwell
-      </p>
+     <SectionTitle heading={"Our Agents"} subHeading={"Lets introducing with our Agents of NextDwell"}/>
       <div className="grid grid-cols-1 p-5 md:grid-cols-3 my-7 gap-7">
         <div className="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
           <img

@@ -1,17 +1,13 @@
+import SectionTitle from "../pages/shared/SectionTitle";
+
 const Review = () => {
   return (
     <div>
-      <div className="m-10 space-y-5 text-center p-15 ">
-        <h2 className="text-5xl font-extrabold text-purple-500 font-poppins ">
-          Latest User review
-        </h2>
-        <p>Here you can see our clients latest review</p>
-      </div>
+      <SectionTitle
+        heading={"Latest user Review"}
+        subHeading={"Here you can see our clients latest review"}
+      />
       <div className="grid grid-cols-1 gap-5 p-5 md:grid-cols-3">
-        {/* {addv?.map((add) => (
-          <AddvCard key={add._id} add={add}></AddvCard>
-        ))} */}
-
         <div className="w-full transition-all duration-300 transform border border-indigo-300 rounded-lg shadow-lg bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-2xl hover:scale-105 dark:border-gray-700">
           <div className="flex items-center p-5">
             <img

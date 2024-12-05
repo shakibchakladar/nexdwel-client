@@ -1,22 +1,15 @@
+import SectionTitle from "../pages/shared/SectionTitle";
 
 const WhySpecial = () => {
   return (
     <div className="text-center">
-      <div className="p-10 m-2">
-        {/* <Link to="/allfood">
-          <button className="border-2 border-orange-400 btn btn-outline">
-            see all
-          </button>
-        </Link> */}
-      </div>
-      <div className="p-5 m-5 space-y-5 text-center my-7">
-        <h2 className="text-5xl font-bold font-poppins ">Why is it special?</h2>
-        <p>
-          Discover why Nextdwell stands out as the pinnacle of dining
-          excellence,
-          <br />
-        </p>
-      </div>
+      <div className="p-10 m-2"></div>
+      <SectionTitle
+        heading={"Why is it special"}
+        subHeading={
+          "Discover why Nextdwell stands out as the pinnacle of dinning excellence"
+        }
+      />
       <div className="hero min-h-[800px] bg-base-200 p-10">
         <div className="flex-col justify-between hero-content lg:flex-row gap-x-8">
           <div className="md:w-1/2">
