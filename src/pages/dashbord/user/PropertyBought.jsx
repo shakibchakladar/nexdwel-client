@@ -67,6 +67,18 @@ const PropertyBought = () => {
               >
                 Offered Price
               </th>
+              <th
+                scope="col"
+                className="py-3 mr-10 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200 "
+              >
+               Status
+              </th>
+              <th
+                scope="col"
+                className="py-3 mr-10 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200 "
+              >
+               pay
+              </th>
             </tr>
           </thead>
           <tbody>

@@ -39,6 +39,7 @@ const GetOffer = () => {
     const agentName = e.target.agentname.value;
     const buyerName = user?.displayName;
     const buyerEmail = user?.email;
+    const status="requested";
 
     const offeredData = {
       offeredPrice,
@@ -48,6 +49,7 @@ const GetOffer = () => {
       agentName,
       buyerName,
       buyerEmail,
+      status
     };
     // POST the offeredData to the backend
     fetch("http://localhost:5000/add-offer", {
