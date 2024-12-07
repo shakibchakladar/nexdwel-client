@@ -20,13 +20,13 @@ const PropertyCard = ({ singleProperty }) => {
     <div className="p-4 card-body">
       <h2 className="text-lg font-bold card-title">{property_title}</h2>
       <p className="text-sm text-gray-600">Location: {property_location}</p>
-      <p className="text-sm text-gray-600">Price range: {price_range}</p>
-      <p className="text-sm text-gray-600">Agent name: {agent_name}</p>
-      <p className="text-sm text-gray-600">Agent email: {agent_email}</p>
-      <p className="text-sm text-gray-600">Verification status: {verification_status}</p>
+      <p className="text-sm text-red-600">Price range: {price_range}</p>
+      {/* <p className="text-sm text-gray-600">Agent name: {agent_name}</p> */}
+      {/* <p className="text-sm text-gray-600">Agent email: {agent_email}</p> */}
+      {/* <p className="text-sm text-gray-600">Verification status: {verification_status}</p> */}
       <div className="justify-end mt-4 card-actions">
         <Link to={`/details/${singleProperty?._id}`}>
-          <button className="transition-transform duration-300 btn btn-primary hover:scale-105">
+          <button className="font-bold transition-transform duration-300 bg-blend-darken btn btn-outline btn-accent hover:scale-105">
             View details
           </button>
         </Link>
